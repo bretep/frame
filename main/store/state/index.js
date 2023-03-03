@@ -264,6 +264,12 @@ const initial = {
         137: {
           infura: 'infuraPolygon'
         },
+        369: {
+          pulsechain: 'pulseChain'
+        },
+        942: {
+          pulsechain: 'pulseChainTestnetV3'
+        },
         42161: {
           infura: 'infuraArbitrum'
         },
@@ -431,6 +437,76 @@ const initial = {
             primary: {
               on: true,
               current: 'infura',
+              status: 'loading',
+              connected: false,
+              type: '',
+              network: '',
+              custom: ''
+            },
+            secondary: {
+              on: false,
+              current: 'custom',
+              status: 'loading',
+              connected: false,
+              type: '',
+              network: '',
+              custom: ''
+            }
+          },
+          on: false
+        },
+        369: {
+          id: 369,
+          type: 'ethereum',
+          layer: 'mainnet',
+          isTestnet: false,
+          name: 'PulseChain',
+          explorer: 'https://scan.pulsechain.com',
+          gas: {
+            price: {
+              selected: 'standard',
+              levels: { slow: '', standard: '', fast: '', asap: '', custom: '' }
+            }
+          },
+          connection: {
+            primary: {
+              on: true,
+              current: 'pulsechain',
+              status: 'loading',
+              connected: false,
+              type: '',
+              network: '',
+              custom: ''
+            },
+            secondary: {
+              on: false,
+              current: 'custom',
+              status: 'loading',
+              connected: false,
+              type: '',
+              network: '',
+              custom: ''
+            }
+          },
+          on: false
+        },
+        942: {
+          id: 942,
+          type: 'ethereum',
+          layer: 'testnet',
+          isTestnet: true,
+          name: 'PulseChain v3',
+          explorer: 'https://scan.v3.testnet.pulsechain.com',
+          gas: {
+            price: {
+              selected: 'standard',
+              levels: { slow: '', standard: '', fast: '', asap: '', custom: '' }
+            }
+          },
+          connection: {
+            primary: {
+              on: true,
+              current: 'pulsechain',
               status: 'loading',
               connected: false,
               type: '',
@@ -668,6 +744,50 @@ const initial = {
           },
           icon: 'https://frame.nyc3.cdn.digitaloceanspaces.com/icons/polygon.svg',
           primaryColor: 'accent6' // Polygon
+        },
+        369: {
+          blockHeight: 0,
+          gas: {
+            fees: {},
+            price: {
+              selected: 'standard',
+              levels: { slow: '', standard: '', fast: '', asap: '', custom: '' }
+            }
+          },
+          nativeCurrency: {
+            symbol: 'PLS',
+            usd: {
+              price: 0,
+              change24hr: 0
+            },
+            icon: 'https://pulsechain.com/img/wordmarkShort.png',
+            name: 'Pulse',
+            decimals: 18
+          },
+          icon: 'https://pulsechain.com/img/wordmarkShort.png',
+          primaryColor: 'accent5' // PulseChain
+        },
+        942: {
+          blockHeight: 0,
+          gas: {
+            fees: {},
+            price: {
+              selected: 'standard',
+              levels: { slow: '', standard: '', fast: '', asap: '', custom: '' }
+            }
+          },
+          nativeCurrency: {
+            symbol: 'TPLS',
+            usd: {
+              price: 0,
+              change24hr: 0
+            },
+            icon: 'https://pulsechain.com/img/wordmarkShort.png',
+            name: 'Test Pulse',
+            decimals: 18
+          },
+          icon: 'https://pulsechain.com/img/wordmarkShort.png',
+          primaryColor: 'accent5' // PulseChain
         },
         42161: {
           blockHeight: 0,

@@ -625,6 +625,9 @@ const migrations = {
       } else if (id === '42161') {
         chain.icon = 'https://frame.nyc3.cdn.digitaloceanspaces.com/icons/arbitrum.svg'
         chain.primaryColor = 'accent7' // Arbitrum
+      } else if (['369', '942'].includes(id)) {
+        chain.icon = 'https://pulsechain.com/img/wordmarkShort.png'
+        chain.primaryColor = 'accent5' // PulseChain
       } else if (['3', '4', '5', '42', '11155111'].includes(id)) {
         chain.icon = ''
         chain.primaryColor = 'accent2' // Testnets
@@ -853,6 +856,137 @@ const migrations = {
         },
         icon: 'https://frame.nyc3.cdn.digitaloceanspaces.com/baseiconcolor.png',
         primaryColor: 'accent2' // Testnet
+      }
+    }
+
+    return initial
+  },
+  34: (initial) => {
+    // Add PulseChain to persisted networks
+    if (!initial.main.networks.ethereum[369]) {
+      initial.main.networks.ethereum[369] = {
+        id: 369,
+        type: 'ethereum',
+        layer: 'mainnet',
+        isTestnet: false,
+        name: 'PulseChain',
+        explorer: 'https://scan.pulsechain.com',
+        gas: {
+          price: {
+            selected: 'standard',
+            levels: { slow: '', standard: '', fast: '', asap: '', custom: '' }
+          }
+        },
+        connection: {
+          primary: {
+            on: true,
+            current: 'pulsechain',
+            status: 'loading',
+            connected: false,
+            type: '',
+            network: '',
+            custom: ''
+          },
+          secondary: {
+            on: false,
+            current: 'custom',
+            status: 'loading',
+            connected: false,
+            type: '',
+            network: '',
+            custom: ''
+          }
+        },
+        on: false
+      }
+    }
+
+    if (!initial.main.networksMeta.ethereum[369]) {
+      initial.main.networksMeta.ethereum[369] = {
+        blockHeight: 0,
+        gas: {
+          fees: {},
+          price: {
+            selected: 'standard',
+            levels: { slow: '', standard: '', fast: '', asap: '', custom: '' }
+          }
+        },
+        nativeCurrency: {
+          symbol: 'PLS',
+          usd: {
+            price: 0,
+            change24hr: 0
+          },
+          icon: 'https://pulsechain.com/img/wordmarkShort.png',
+          name: 'Pulse',
+          decimals: 18
+        },
+        icon: 'https://pulsechain.com/img/wordmarkShort.png',
+        primaryColor: 'accent5' // PulseChain
+      }
+    }
+
+    // Add PulseChain Testnet v3 to persisted networks
+    if (!initial.main.networks.ethereum[942]) {
+      initial.main.networks.ethereum[942] = {
+        id: 942,
+        type: 'ethereum',
+        layer: 'testnet',
+        isTestnet: true,
+        name: 'PulseChain v3',
+        explorer: 'https://scan.v3.testnet.pulsechain.com',
+        gas: {
+          price: {
+            selected: 'standard',
+            levels: { slow: '', standard: '', fast: '', asap: '', custom: '' }
+          }
+        },
+        connection: {
+          primary: {
+            on: true,
+            current: 'pulsechain',
+            status: 'loading',
+            connected: false,
+            type: '',
+            network: '',
+            custom: ''
+          },
+          secondary: {
+            on: false,
+            current: 'custom',
+            status: 'loading',
+            connected: false,
+            type: '',
+            network: '',
+            custom: ''
+          }
+        },
+        on: false
+      }
+    }
+
+    if (!initial.main.networksMeta.ethereum[942]) {
+      initial.main.networksMeta.ethereum[942] = {
+        blockHeight: 0,
+        gas: {
+          fees: {},
+          price: {
+            selected: 'standard',
+            levels: { slow: '', standard: '', fast: '', asap: '', custom: '' }
+          }
+        },
+        nativeCurrency: {
+          symbol: 'TPLS',
+          usd: {
+            price: 0,
+            change24hr: 0
+          },
+          icon: 'https://pulsechain.com/img/wordmarkShort.png',
+          name: 'Test Pulse',
+          decimals: 18
+        },
+        icon: 'https://pulsechain.com/img/wordmarkShort.png',
+        primaryColor: 'accent5' // PulseChain
       }
     }
 
